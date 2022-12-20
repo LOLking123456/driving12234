@@ -1,0 +1,67 @@
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()        local Window = Library.CreateLib("Legend HandlesYT | [🎄EVENT] Driving Empire", "DarkTheme")
+
+        -- MAIN
+        local Main = Window:NewTab("Main")
+        local MainSection = Main:NewSection("Main")
+
+        
+         local Cred = Window:NewTab("Credits")
+        local CredSection = Cred:NewSection("Credits")
+        
+MainSection:NewToggle("Infinite Presents", "INFINITE!", function(state)
+    if state then
+        while true do
+    game:GetService("Players").LocalPlayer.PlayerGui.MainHUD.SideHUD.Bottom.Presents.Amount.Text = "1.e+40"
+wait(0)
+end else
+        print("off")
+        end
+end)
+
+MainSection:NewToggle("Get Present", "Teleports To Present", function(state)
+    if state then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(38.5223541, 12.6081238, -4041.98901, 0.460632414, 4.21340687e-08, -0.887591004, -2.25586949e-09, 1, 4.62994123e-08, 0.887591004, -1.93247196e-08, 0.460632414)
+    else
+        print("off")
+        end
+end)
+
+MainSection:NewToggle("Teleport To Present Shop", "Teleports To Shop", function(state)
+    if state then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-126.877647, 12.637804, -4344.05615, 0.181455806, -8.43641157e-09, 0.983399093, -8.19410761e-09, 1, 1.00907966e-08, -0.983399093, -9.88911175e-09, 0.181455806)
+    else
+        print("off")
+        end
+end)
+  MainSection:NewButton("Infinite Jump", "Infinite Jump", function()
+game:GetService("UserInputService").JumpRequest:connect(function()
+
+	game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")		
+
+end)
+
+end)
+
+
+
+MainSection:NewSlider("Walkspeed", "Players Speed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    getgenv().WalkSpeedValue = (s); --set your desired walkspeed here
+local Player = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+
+end)
+
+
+MainSection:NewSlider("FOV", "Change Field of view", 120, 70, function(v) -- 500 (MaxValue) | 0 (MinValue)
+     local amount = (v)
+
+game:GetService'Workspace'.Camera.FieldOfView = (v)
+
+end)
+
+
+CredSection:NewLabel("Made By: Legend Handles")
